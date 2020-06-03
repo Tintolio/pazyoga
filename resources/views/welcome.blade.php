@@ -81,7 +81,7 @@
     <div class="container text-center text-md-left" data-aos="fade-up">
       <h1>Temuco <span>Yoga</span></h1>
       <h2>app yoga Camila</h2>
-      <a href="#about" class="btn-get-started scrollto">suscribete</a>
+      <a href="/login" class="btn-get-started scrollto">Ingresa!</a>
     </div>
   </section><!-- End Hero -->
 
