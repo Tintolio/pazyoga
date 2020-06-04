@@ -21,9 +21,8 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::view('/users/dashboardAdmin', function () {
-    return view('dashboardAdmin');
-});
+Route::view('/dashboardAdmin', 'admin/dashboardAdmin') -> name ('admindashboard');
+
 
 
 Auth::routes();
