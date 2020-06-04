@@ -19,7 +19,7 @@ class Usuarios extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('nivel');
-            $table->string('datos')
+            $table->string('datos');
             $table->rememberToken();
             $table->timestamps();
         });

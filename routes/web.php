@@ -20,6 +20,14 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::view('/users/dashboardAdmin', function () {
+    return view('dashboardAdmin');
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
