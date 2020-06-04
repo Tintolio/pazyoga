@@ -21,7 +21,9 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::view('/dashboardAdmin', 'admin/dashboardAdmin') -> name ('admindashboard');
+Route::get('/dashboardAdmin','pagesController@admindashboard') -> name ('admindashboard');
+
+//Route::view('/dashboardAdmin', 'admin/dashboardAdmin') -> name ('admindashboard');
 
 
 

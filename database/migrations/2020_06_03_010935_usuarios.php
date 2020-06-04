@@ -20,7 +20,6 @@ class Usuarios extends Migration
             $table->string('password');
             $table->string('nivel');
             $table->string('datos');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
