@@ -27,7 +27,7 @@
             </a>
           </li>
           <li>
-            <a href="./tables.html">
+            <a href="/listAlumn">
               <i class="nc-icon nc-tile-56"></i>
               <p>Lista alumnos</p>
             </a>
