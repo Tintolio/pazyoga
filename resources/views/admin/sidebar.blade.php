@@ -1,12 +1,13 @@
-@extends('layouts.app')
+@extends('dashboardAdmin')
 
-@section('sidebar')
+@section('barraLateral')
+
+
 <!--Inicio de barra navegacion dashboard -->
-      <div class="sidebar-wrapper">
         <ul class="nav">
 
           <li>
-            <a href="./user.html">
+            <a href="./dashboardAdmin">
               <i class="nc-icon nc-single-02"></i>
               <p>Perfil </p>
             </a>
@@ -34,8 +35,5 @@
 
           </li>
         </ul>
-      </div>
       <!-- fin barra Navegacion  lateral -->
-
-
 @endsection
