@@ -26,6 +26,7 @@ Route::view('/admindash','dashboardAdmin');
 
 //Route::view('/dashboardAdmin', 'admin/dashboardAdmin') -> name ('admindashboard');
 
+Route::resource('usuarios','UsersController');
 
 
 Auth::routes();

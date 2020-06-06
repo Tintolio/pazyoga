@@ -15,9 +15,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-
-    protected $table = 'Usuarios';
-
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -31,6 +28,28 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function roles() /*funcion que conecta la tabla usuarios con la tabla roles*/
+    {
+        return $this->belongsToMany(Role::class,'assigned_roles');//por paramentro se entrega el modelo al que pertenece en este caso Role
+    }
+
+
+    public function hasRoles(array $roles)
+    {
+        foreach ($roles as $role)
+        {
+            foreach ($this->roles as $userRole) 
+            {
+                if ($userRole->name === $role) //this se refiere al usuario porque se encuentra en la clase (bd) usuario 
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
     /**
      * The attributes that should be cast to native types.
      *

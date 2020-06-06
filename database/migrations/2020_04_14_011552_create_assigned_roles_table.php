@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Nivel extends Migration
+class CreateAssignedRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class Nivel extends Migration
      */
     public function up()
     {
-        Schema::create('Nivel', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre'); //username
+        Schema::create('assigned_roles', function (Blueprint $table) { //tabla para que un usuario tenga varios roles
+            $table->integer('user_id')->unsigned();
+            $table->integer('role_id')->unsigned();
         });
     }
 
@@ -26,6 +26,6 @@ class Nivel extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Nivel');
+        Schema::dropIfExists('assigned_roles');
     }
 }
