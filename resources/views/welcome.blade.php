@@ -48,11 +48,12 @@
       @guest
           @else
     
-            @if (auth()->user()->hasRoles(['admin'])){{-- verificacion de usuario para mostrar el link--}}
+            @if (auth()->user()->hasRoles(['Admin'])){{-- verificacion de usuario para mostrar el link--}}
 
               <li class="nav-item">
-                <a class=" nav-link " href="{{route('usuarios.index')}}">
-                  usuarios
+                <a class=" nav-link " href="{{route('dashboardAdmin')}}"> 
+                  Dashboard :3
+
                 </a>
               </li>
 

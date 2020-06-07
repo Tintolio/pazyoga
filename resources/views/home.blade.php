@@ -16,7 +16,7 @@
 
                     You are logged in!
 
-                    {{dd user()->role()}}
+
                 </div>
             </div>
         </div>
