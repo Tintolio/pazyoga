@@ -1,9 +1,6 @@
-@extends('dashboardAdmin')
-@section('listAlumn')
+@include('layouts.app')
 
-<h1>usuarios</h1>
-  
-  <table class="table">
+<table class="table">
     <thead>
       <tr>
         <th>ID</th>
@@ -27,19 +24,27 @@
               {{$role->display_name}}
             @endforeach
           </td>
-          <td> 
-            <a class="btn btn-info btn-xs" href="{{route('usuarios.edit',$user->id)}}"> editar</a>
-            <form style="display: inline;"  method="POST" action="{{route('usuarios.destroy',$user->id)}}">
+           <td> 
+            <a class="btn btn-info btn-xs" href="{{route('administrador.edit',$user->id)}}"> editar</a>
+            <form style="display: inline;"  method="POST" action="{{route('administrador.destroy',$user->id)}}">
               @csrf
               @method ('DELETE')
               
               <button class="btn btn-danger btn-xs" type="submit">Eliminar</button>
             </form>
-          </td>
-
+          </td> 
         </tr>
 
       @endforeach
+
+
     </tbody>
   </table>
-@endsection
+
+</div>
+
+
+
+
+
+

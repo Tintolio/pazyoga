@@ -7,7 +7,7 @@
         <ul class="nav">
 
           <li>
-            <a href="./dashboardAdmin">
+            <a href="./admindash">
               <i class="nc-icon nc-single-02"></i>
               <p>Perfil </p>
             </a>
@@ -27,9 +27,16 @@
             </a>
           </li>
           <li>
-            <a href="/listAlumn">
+            <a href="/lista">
               <i class="nc-icon nc-tile-56"></i>
               <p>Lista alumnos</p>
+            </a>
+          </li>
+
+          <li>
+            <a href="/administrador/edit">
+              <i class="nc-icon nc-tile-56"></i>
+              <p>editar alumno</p>
             </a>
           </li>
 

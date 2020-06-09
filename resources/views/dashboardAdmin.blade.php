@@ -54,6 +54,8 @@
         <!-- aqui van los yield de list alumnos - perfil - subir videos - ver  videos- listar alumnos -->
     @yield('contentPerfil',View::make('admin.contentPerfil'))
     @yield('listAlumn', View::make('admin.listAlumn'))
+    @yield('edit',View::make('admin.edit'))
+    
       </div>
 
       <!--fin del contenido del perfil -->

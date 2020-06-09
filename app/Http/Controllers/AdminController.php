@@ -22,7 +22,17 @@ class AdminController extends Controller
      */
     public function index()
     {
+
         return view('dashboardAdmin');
+    }
+
+
+    public function listar()
+    {
+        $users = \App\User::all();
+
+        return view('admin.listAlumn', compact('users'));
+
     }
 
     /**
@@ -65,7 +75,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = \App\User::findOrFail($id); //App\User (modelo User. DEBE SER IMPORTADO) devuelve todos los usuarios de la bd  // findOrFail ->funcion de laravel para encontrar o fallar(lanzar excepcion)
+        return view ('admin.edit',compact('user')); //compact envia la variable a la vista
     }
 
     /**
@@ -77,7 +88,12 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = \App\User::findOrFail($id);
+
+        $user->update($request->all());
+        
+        return back()->with('info','usuario actualizado');
+    
     }
 
     /**

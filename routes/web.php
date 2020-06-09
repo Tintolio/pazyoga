@@ -22,19 +22,16 @@ Route::get('/login', function () {
 });
 
 Route::get('/admindash','AdminController@index')->name('dashboardAdmin');
+//Route::resource('admindash','AdminController');
+
+Route::get('/lista','AdminController@listar');
 
 
-
-//Route::view('/admindash','dashboardAdmin');
-
-
-//Route::view('/dashboardAdmin', 'admin/dashboardAdmin') -> name ('admindashboard');
-
-Route::resource('usuarios','UsersController');
+Route::resource('administrador','AdminController');
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
