@@ -33,13 +33,6 @@
             </a>
           </li>
 
-          <li>
-            <a href="/administrador/edit">
-              <i class="nc-icon nc-tile-56"></i>
-              <p>editar alumno</p>
-            </a>
-          </li>
-
           </li>
         </ul>
       <!-- fin barra Navegacion  lateral -->
