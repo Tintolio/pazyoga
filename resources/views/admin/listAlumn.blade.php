@@ -1,4 +1,6 @@
-@include('layouts.app')
+@extends('dashboardAdmin')
+
+@section('cuerpo')
 
 <table class="table">
     <thead>
@@ -45,6 +47,6 @@
 
 
 
-
+@endsection
 
 

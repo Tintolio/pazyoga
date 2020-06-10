@@ -106,4 +106,11 @@ class AdminController extends Controller
     {
         //
     }
+
+//controlador de perfil para mostrar
+    public function perfil()
+    {
+
+        return view('admin.contentPerfil');
+    }
 }

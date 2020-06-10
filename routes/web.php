@@ -21,14 +21,19 @@ Route::get('/login', function () {
     return view('login');
 });
 
-Route::get('/admindash','AdminController@index')->name('dashboardAdmin');
+
+
+//rutas del administrador ///////
+Route::get('/dashboardAdmin','AdminController@index')->name('dashboardAdmin');
 //Route::resource('admindash','AdminController');
 
-Route::get('/lista','AdminController@listar');
+Route::get('/listaAlumn','AdminController@listar')->name('listaAlumn');
+
+Route::get('/contentPerfil','AdminController@perfil')->name('contentPerfil');
 
 
 Route::resource('administrador','AdminController');
-
+//// rutas del administrador ///
 
 Auth::routes();
 

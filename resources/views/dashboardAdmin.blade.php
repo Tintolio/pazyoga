@@ -19,6 +19,14 @@
   <link href="assets/vendor/bootstrap/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+
+<style>
+  .activeSide a{
+    color: red;
+    text-decoration: none;
+  }
+</style>
+
 </head>
 
 <body class="">
@@ -40,7 +48,17 @@
       </div>
          <div class="sidebar-wrapper">
 
-@yield('barraLateral', View::make('admin.sidebar'))
+           <ul class="nav">
+
+          <li class="{{setActive('contentPerfil') }}" > Perfil <a href="contentPerfil"></a></li>
+          <li class="{{setActive('listaAlumn') }}" > lista alumn <a href="listaAlumn"></a></li>
+
+        </ul>
+       
+        <!-- navegacion con helpera -->
+
+
+
       </div>
       </div>
     <div class="main-panel">
@@ -52,7 +70,12 @@
       <div class="content">
 
         <!-- aqui van los yield de list alumnos - perfil - subir videos - ver  videos- listar alumnos -->
-    @yield('contentPerfil',View::make('admin.contentPerfil'))
+    @yield('cuerpo')
+
+    
+    
+
+
       </div>
 
       <!--fin del contenido del perfil -->
