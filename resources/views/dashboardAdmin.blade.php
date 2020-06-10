@@ -49,10 +49,28 @@
          <div class="sidebar-wrapper">
 
            <ul class="nav">
+<!---->
+          <li class="{{setActive('contentPerfil') }}" >
+            <a href="contentPerfil">
+                <i class="nc-icon nc-diamond"></i>
+                      <p>Perfil</p></a>
+          </li>
 
-          <li class="{{setActive('contentPerfil') }}" > Perfil <a href="contentPerfil"></a></li>
-          <li class="{{setActive('listaAlumn') }}" > lista alumn <a href="listaAlumn"></a></li>
-
+          <li class="{{setActive('listaAlumn') }}" >
+            <a href="listaAlumn">
+                <i class="nc-icon nc-diamond"></i>
+                     <p>list alumn</p></a>
+          </li>
+          <li class="{{setActive('vervideos') }}" >
+            <a href="#">
+                <i class="nc-icon nc-diamond"></i>
+                     <p>ver videos</p></a>
+          </li>
+          <li class="{{setActive('subirvideos') }}" >
+            <a href="#">
+                <i class="nc-icon nc-diamond"></i>
+                     <p>subirvideos</p></a>
+          </li>
         </ul>
        
         <!-- navegacion con helpera -->
