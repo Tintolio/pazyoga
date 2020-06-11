@@ -113,4 +113,17 @@ class AdminController extends Controller
 
         return view('admin.contentPerfil');
     }
+
+    //controlador de perfil para mostrar
+    public function verVideos()
+    {
+
+        return view('admin.verVideos');
+    }
+    //controlador de perfil para mostrar
+    public function subVideo()
+    {
+
+        return view('admin.subVideo');
+    }
 }

@@ -61,13 +61,13 @@
                 <i class="nc-icon nc-diamond"></i>
                      <p>list alumn</p></a>
           </li>
-          <li class="{{setActive('vervideos') }}" >
-            <a href="#">
+          <li class="{{setActive('verVideos') }}" >
+            <a href="verVideos">
                 <i class="nc-icon nc-diamond"></i>
                      <p>ver videos</p></a>
           </li>
-          <li class="{{setActive('subirvideos') }}" >
-            <a href="#">
+          <li class="{{setActive('subVideo') }}" >
+            <a href="subVideo">
                 <i class="nc-icon nc-diamond"></i>
                      <p>subirvideos</p></a>
           </li>
@@ -90,10 +90,6 @@
         <!-- aqui van los yield de list alumnos - perfil - subir videos - ver  videos- listar alumnos -->
     @yield('cuerpo')
 
-    
-    
-
-
       </div>
 
       <!--fin del contenido del perfil -->
@@ -101,18 +97,12 @@
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">
           <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li><a href="#" target="_blank">Creative Tim</a></li>
-                <li><a href="#" target="_blank">Blog</a></li>
-                <li><a href="#" target="_blank">Licenses</a></li>
-              </ul>
-            </nav>
+
             <div class="credits ml-auto">
               <span class="copyright">
                 © <script>
                   document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
+                </script>, made with <i class="fa fa-heart heart"></i> by Vulturcorp.cl
               </span>
             </div>
           </div>

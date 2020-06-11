@@ -31,6 +31,9 @@ Route::get('/listaAlumn','AdminController@listar')->name('listaAlumn');
 
 Route::get('/contentPerfil','AdminController@perfil')->name('contentPerfil');
 
+Route::get('/verVideos','AdminController@verVideos')->name('verVideos');
+Route::get('/subVideo','AdminController@subVideo')->name('subVideo');
+
 
 Route::resource('administrador','AdminController');
 //// rutas del administrador ///
