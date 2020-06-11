@@ -133,7 +133,7 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" value="Chet">
+                        <input type="text" class="form-control" placeholder="Company" value="">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
@@ -188,5 +188,7 @@
               </div>
             </div>
           </div>
+
+
 
 @endsection

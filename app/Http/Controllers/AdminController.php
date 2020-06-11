@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
 
 class AdminController extends Controller
 {
@@ -111,7 +110,11 @@ class AdminController extends Controller
     public function perfil()
     {
 
-        return view('admin.contentPerfil');
+        $us = DB::table('users')
+            ->join('datos_usuarios', 'users.id', '=', 'datos_usuarios.datos_id')
+            ->get();
+
+        return view('admin.contentPerfil', compact('us'));
     }
 
     //controlador de perfil para mostrar

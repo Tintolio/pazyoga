@@ -1,6 +1,5 @@
 @include('layouts.app')
 
-<h1>Editar usuario</h1>
 
 	<div class="container" id="app">
 		@if(session()->has('info'))
