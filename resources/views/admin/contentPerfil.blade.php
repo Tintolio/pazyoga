@@ -1,7 +1,6 @@
 @extends('dashboardAdmin')
 
 @section('cuerpo')
-    <div class="row">
           <div class="col-md-4">
             <div class="card card-user">
               <div class="image">
@@ -101,6 +100,8 @@
               </div>
             </div>
           </div>
+
+          
           <div class="col-md-8">
             <div class="card card-user">
               <div class="card-header">
@@ -187,6 +188,5 @@
               </div>
             </div>
           </div>
-        </div>
 
 @endsection

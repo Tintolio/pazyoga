@@ -20,12 +20,7 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
 
-<style>
-  .activeSide a{
-    color: red;
-    text-decoration: none;
-  }
-</style>
+
 
 </head>
 
@@ -46,7 +41,7 @@
           </div> -->
         </a>
       </div>
-         <div class="sidebar-wrapper">
+        <div class="sidebar-wrapper">
 
            <ul class="nav">
 <!---->
@@ -71,25 +66,27 @@
                 <i class="nc-icon nc-diamond"></i>
                      <p>subirvideos</p></a>
           </li>
-        </ul>
-       
+        </ul> 
         <!-- navegacion con helpera -->
-
-
-
       </div>
-      </div>
+     </div>
+
+
     <div class="main-panel">
       <!-- Navbar -->
-    
-@yield('navbarAdmin', View::make('admin.navbarAdmin'))
+    <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+      
+         @include('admin.navbarAdmin')
+          </div>
+    </nav>
       <!-- End Navbar -->
       <!-- contenido del perfil -->
       <div class="content">
-
+        <div class="row">
         <!-- aqui van los yield de list alumnos - perfil - subir videos - ver  videos- listar alumnos -->
-    @yield('cuerpo')
-
+            @yield('cuerpo')
+         </div>   
       </div>
 
       <!--fin del contenido del perfil -->
@@ -114,13 +111,17 @@
   <script src="/assets/vendor/bootstrap/js/core/jquery.min.js"></script>
   <script src="/assets/vendor/bootstrap/js/core/popper.min.js"></script>
   <script src="/assets/vendor/bootstrap/js/core/bootstrap.min.js"></script>
-  <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Chart JS -->
-  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
-  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO -->
+  <script src="/assets/vendor/bootstrap/js/plugins/bootstrap-notify.js"></script>
+
+
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+
 </body>
 
 </html>
