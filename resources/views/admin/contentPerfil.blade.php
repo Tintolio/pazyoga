@@ -133,13 +133,13 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" value="">
+                        <input type="text" class="form-control" placeholder="Company" value="{{$us->datos->nombre}}"> {{--para acceder a los datos tienes que llamar a la variable $us->datos->x     cambiar x por el nombre de la columna, de la tabla datos_usuarios--}}
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="Faker">
+                        <input type="text" class="form-control" placeholder="Last Name" value="{{$us->datos->apellido}}">{{--aqui deje otro ejemplo --}}
                       </div>
                     </div>
                   </div>
@@ -188,7 +188,6 @@
               </div>
             </div>
           </div>
-
 
 
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -11,12 +12,12 @@ class AdminController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'roles:Admin']);
+        $this->middleware(['auth','roles:Admin']);
     }
 
     /**
      * Display a listing of the resource.
-     *
+     *'roles:Admin'
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -110,9 +111,11 @@ class AdminController extends Controller
     public function perfil()
     {
 
-        $us = DB::table('users')
-            ->join('datos_usuarios', 'users.id', '=', 'datos_usuarios.datos_id')
-            ->get();
+        // $us = \App\User::join("datos_usuarios","users.id","=","datos_usuarios.datos_id")
+        //     ->where('users.id','=',$id)
+        //     ->get();
+
+        $us = \App\User::findOrFail(Auth::id());
 
         return view('admin.contentPerfil', compact('us'));
     }

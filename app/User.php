@@ -29,9 +29,14 @@ class User extends Authenticatable
     ];
 
 
-    public function roles() /*funcion que conecta la tabla usuarios con la tabla roles*/
+    public function role() /*funcion que conecta la tabla usuarios con la tabla roles*/
     {
-        return $this->belongsToMany(Role::class,'assigned_roles');//por paramentro se entrega el modelo al que pertenece en este caso Role
+        return $this->belongsTo(Role::class);//por paramentro se entrega el modelo al que pertenece en este caso Role
+    }
+
+    public function datos()
+    {
+        return $this->hasOne(DatosUsuario::class);
     }
 
 
@@ -39,13 +44,11 @@ class User extends Authenticatable
     {
         foreach ($roles as $role)
         {
-            foreach ($this->roles as $userRole) 
+            if ($this->role->name === $role) //this se refiere al usuario porque se encuentra en la clase (bd) usuario 
             {
-                if ($userRole->name === $role) //this se refiere al usuario porque se encuentra en la clase (bd) usuario 
-                {
-                    return true;
-                }
+                return true;
             }
+            
         }
 
         return false;

@@ -14,7 +14,8 @@ class CreateDatosUsuariosTable extends Migration
     public function up()
     {
         Schema::create('datos_usuarios', function (Blueprint $table) {
-            $table->id('datos_id');
+            $table->id();
+            $table->integer('user_id');
             $table->string('nombre');
             $table->string('apellido');
             $table->date('fecha_nac');
@@ -22,9 +23,9 @@ class CreateDatosUsuariosTable extends Migration
             $table->string('nivel');
             $table->string('telefono');
 
-            $table->foreign('datos_id')->references('id')->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            // $table->foreign('datos_id')->references('id')->on('users')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
 
             $table->timestamps();
         });

@@ -28,12 +28,7 @@
           <td>{{$user->id}}</td>
           <td>{{$user->name}}</td>
           <td>{{$user->email}}</td>
-          <td>
-            @foreach ($user->roles as $role)
-
-              {{$role->display_name}}
-            @endforeach
-          </td>
+          <td>{{$user->role->display_name}} </td>
            <td> 
             <a class="btn btn-info btn-xs" href="{{route('administrador.edit',$user->id)}}"> editar</a>
             <form style="display: inline;"  method="POST" action="{{route('administrador.destroy',$user->id)}}">
