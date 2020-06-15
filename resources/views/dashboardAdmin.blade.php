@@ -45,8 +45,8 @@
 
            <ul class="nav">
 <!---->
-          <li class="{{setActive('contentPerfil') }}" >
-            <a href="contentPerfil">
+          <li class="{{setActive('dashboardAdmin') }}" >
+            <a href="dashboardAdmin">
                 <i class="nc-icon nc-diamond"></i>
                       <p>Perfil</p></a>
           </li>

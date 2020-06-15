@@ -29,7 +29,7 @@ Route::get('/dashboardAdmin','AdminController@index')->name('dashboardAdmin');
 
 Route::get('/listaAlumn','AdminController@listar')->name('listaAlumn');
 
-Route::get('/contentPerfil','AdminController@perfil')->name('contentPerfil');
+Route::put('/update','AdminController@update')->name('update');
 
 Route::get('/verVideos','AdminController@verVideos')->name('verVideos');
 Route::get('/subVideo','AdminController@subVideo')->name('subVideo');

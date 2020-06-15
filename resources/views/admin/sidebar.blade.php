@@ -7,7 +7,7 @@
         <ul class="nav">
 
           <li>
-            <a href="./admindash">
+            <a href="./dashboardAdmin">
               <i class="nc-icon nc-single-02"></i>
               <p>Perfil </p>
             </a>

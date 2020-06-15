@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Aws\S3\S3Client;
+use Aws\S3\Exception\S3Exception;
 
 class AdminController extends Controller
 {
@@ -23,7 +25,9 @@ class AdminController extends Controller
     public function index()
     {
 
-        return view('dashboardAdmin');
+        $user = \App\User::findOrFail(Auth::id());
+
+        return view('admin.contentPerfil', compact('user'));
     }
 
 
@@ -86,11 +90,11 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $user = \App\User::findOrFail($id);
-
-        $user->update($request->all());
+        $id = Auth::id();
+        $datos = \App\DatosUsuario::findOrFail($id);
+        $datos->update($request->all());
         
         return back()->with('info','usuario actualizado');
     
@@ -115,9 +119,6 @@ class AdminController extends Controller
         //     ->where('users.id','=',$id)
         //     ->get();
 
-        $us = \App\User::findOrFail(Auth::id());
-
-        return view('admin.contentPerfil', compact('us'));
     }
 
     //controlador de perfil para mostrar
@@ -129,6 +130,8 @@ class AdminController extends Controller
     //controlador de perfil para mostrar
     public function subVideo()
     {
+        $bucket = 'pazyoga';
+        $keyname = '*** Your Object Key ***';
 
         return view('admin.subVideo');
     }

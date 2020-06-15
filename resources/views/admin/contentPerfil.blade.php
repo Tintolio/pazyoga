@@ -101,8 +101,23 @@
             </div>
           </div>
 
-          
-          <div class="col-md-8">
+
+
+
+
+
+
+
+    @if(session()->has('info'))
+      <div class="alert alert-success">{{session ('info')}}</div>
+    @endif
+
+
+    <form method="POST" action="{{route('update')}}">
+      @method('PUT')
+      @csrf
+
+      <div class="col-md-8">
             <div class="card card-user">
               <div class="card-header">
                 <h5 class="card-title">Edit Profile</h5>
@@ -133,13 +148,15 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" value="{{$us->datos->nombre}}"> {{--para acceder a los datos tienes que llamar a la variable $us->datos->x     cambiar x por el nombre de la columna, de la tabla datos_usuarios--}}
+                        <input type="text" class="form-control" placeholder="Company" name="nombre" value="{{$user->datos->nombre }} "> {{--para acceder a los datos tienes que llamar a la variable $us->datos->x     cambiar x por el nombre de la columna, de la tabla datos_usuarios--}}
+                        {{$errors->first('nombre')}}
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="{{$us->datos->apellido}}">{{--aqui deje otro ejemplo --}}
+                        <input type="text" class="form-control" placeholder="Last Name" name="apellido" value="{{$user->datos->apellido}}">{{--aqui deje otro ejemplo --}}
+                        {{$errors->first('apellido')}}
                       </div>
                     </div>
                   </div>
@@ -181,13 +198,36 @@
                   </div>
                   <div class="row">
                     <div class="update ml-auto mr-auto">
-                      <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
+                      <input class="btn btn-primary" type="submit" value="Enviar">
                     </div>
                   </div>
                 </form>
               </div>
             </div>
-          </div>
+      </div>
+
+      </form>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @endsection
