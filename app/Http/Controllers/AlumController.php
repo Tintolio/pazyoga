@@ -1,22 +1,11 @@
 <?php
 
-
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests\UpdateUserRequest;
-
-class UsersController extends Controller
+class AlumController extends Controller
 {
-
-    function __construct()
-    {
-        $this->middleware(['auth','roles:user']);//middleware auth verifica que el usuario esté autenticado, roles verifica el rol //////'roles:admin'
-        
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -24,10 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        
-        $users = \App\User::all();
-
-        return view('users.index',compact('users'));
+        return view('dashboardAlumn');
     }
 
     /**
@@ -70,8 +56,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user = \App\User::findOrFail($id); //App\User (modelo User. DEBE SER IMPORTADO) devuelve todos los usuarios de la bd  // findOrFail ->funcion de laravel para encontrar o fallar(lanzar excepcion)
-        return view ('users.edit',compact('user')); //compact envia la variable a la vista
+        //
     }
 
     /**
@@ -81,13 +66,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, $id)  //request para exigir que no quede en blanco el nombre ni el mail (ver App\Http\Requests)
+    public function update(Request $request, $id)
     {
-        $user = \App\User::findOrFail($id);
-
-        $user->update($request->all());
-        
-        return back()->with('info','usuario actualizado');
+        //
     }
 
     /**

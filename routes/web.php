@@ -25,6 +25,8 @@ Route::get('/login', function () {
 
 //rutas del administrador ///////
 Route::get('/dashboardAdmin','AdminController@index')->name('dashboardAdmin');
+
+Route::get('/dashboardAlum','AlumController@index')->name('dashboardAlum');
 //Route::resource('admindash','AdminController');
 
 Route::get('/listaAlumn','AdminController@listar')->name('listaAlumn');

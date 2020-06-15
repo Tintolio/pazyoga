@@ -57,6 +57,15 @@
                 </a>
               </li>
 
+              @elseif (auth()->user()->hasRoles(['User'])){{-- verificacion de usuario para mostrar el link--}}
+
+              <li class="nav-item">
+                <a class=" nav-link " href="{{route('dashboardAlum')}}"> 
+                  Plataforma Usuario
+
+                </a>
+              </li>
+
             @endif
 
       @endguest

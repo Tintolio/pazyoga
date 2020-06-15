@@ -148,7 +148,7 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" name="nombre" value="{{$user->datos->nombre }} "> {{--para acceder a los datos tienes que llamar a la variable $us->datos->x     cambiar x por el nombre de la columna, de la tabla datos_usuarios--}}
+                        <input type="text" class="form-control" placeholder="Company" name="nombre" value="{{$user->datos->nombre }} "> {{--para acceder a los datos tienes que llamar a la variable $user->datos->x     cambiar x por el nombre de la columna, de la tabla datos_usuarios--}}
                         {{$errors->first('nombre')}}
                       </div>
                     </div>
@@ -198,7 +198,7 @@
                   </div>
                   <div class="row">
                     <div class="update ml-auto mr-auto">
-                      <input class="btn btn-primary" type="submit" value="Enviar">
+                      <input class="btn btn-primary" type="submit" value="Actualizar">
                     </div>
                   </div>
                 </form>
