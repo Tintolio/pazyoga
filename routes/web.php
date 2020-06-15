@@ -56,3 +56,10 @@ Route::get('/dashboardAlum','AlumController@index')->name('dashboardAlum');
 
 
 
+//rutas Alumnos//
+
+Route::get('/dashboardAlum','AlumController@index')->name('dashboardAlum');
+
+Route::put('/updateAlu','AlumController@update')->name('updateAlu');
+
+
