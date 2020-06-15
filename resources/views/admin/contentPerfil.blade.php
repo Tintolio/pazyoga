@@ -146,11 +146,15 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6 pr-1">
+                      
+
                       <div class="form-group">
                         <label>First Name</label>
                         <input type="text" class="form-control" placeholder="Company" name="nombre" value="{{$user->datos->nombre }} "> {{--para acceder a los datos tienes que llamar a la variable $user->datos->x     cambiar x por el nombre de la columna, de la tabla datos_usuarios--}}
                         {{$errors->first('nombre')}}
                       </div>
+
+
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
