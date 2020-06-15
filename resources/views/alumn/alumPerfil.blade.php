@@ -1,9 +1,6 @@
-@extends('dashboardAlumn')
+@extends('dashboardAdmin')
 
-@section('cuerpoAlumn')
-
-
-
+@section('cuerpo')
           <div class="col-md-4">
             <div class="card card-user">
               <div class="image">
@@ -104,8 +101,23 @@
             </div>
           </div>
 
-          
-          <div class="col-md-8">
+
+
+
+
+
+
+
+    @if(session()->has('info'))
+      <div class="alert alert-success">{{session ('info')}}</div>
+    @endif
+
+
+    <form method="POST" action="{{route('updateAlu')}}">
+      @method('PUT')
+      @csrf
+
+      <div class="col-md-8">
             <div class="card card-user">
               <div class="card-header">
                 <h5 class="card-title">Edit Profile</h5>
@@ -135,14 +147,25 @@
                   <div class="row">
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
+
                         <label>First Name</label>
-                        <input type="text" class="form-control" placeholder="Company" value="{{$us->datos->nombre}}"> {{--para acceder a los datos tienes que llamar a la variable $us->datos->x     cambiar x por el nombre de la columna, de la tabla datos_usuarios--}}
+                        @if(is_null($user->datos ))
+                          <input type="text" class="form-control" placeholder="Company" name="nombre" value="Nombre"> 
+                        @else
+                          <input type="text" class="form-control" placeholder="Company" name="nombre" value="{{$user->datos->nombre }} "> {{--para acceder a los datos tienes que llamar a la variable $user->datos->x     cambiar x por el nombre de la columna, de la tabla datos_usuarios--}}
+                        {{$errors->first('nombre')}}
+                        @endif
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" class="form-control" placeholder="Last Name" value="{{$us->datos->apellido}}">{{--aqui deje otro ejemplo --}}
+                        @if(is_null($user->datos ))
+                          <input type="text" class="form-control" placeholder="Company" name="apellido" value="Apellido"> 
+                        @else
+                          <input type="text" class="form-control" placeholder="Company" name="apellido" value="{{$user->datos->apellido }} "> {{--para acceder a los datos tienes que llamar a la variable $user->datos->x     cambiar x por el nombre de la columna, de la tabla datos_usuarios--}}
+                        {{$errors->first('apellido')}}
+                        @endif
                       </div>
                     </div>
                   </div>
@@ -184,13 +207,35 @@
                   </div>
                   <div class="row">
                     <div class="update ml-auto mr-auto">
-                      <button type="submit" class="btn btn-primary btn-round">Update Profile</button>
+                      <input class="btn btn-primary" type="submit" value="Actualizar">
                     </div>
                   </div>
                 </form>
               </div>
             </div>
-          </div>
+      </div>
+
+      </form>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

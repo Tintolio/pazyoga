@@ -26,7 +26,6 @@ Route::get('/login', function () {
 //rutas del administrador ///////
 Route::get('/dashboardAdmin','AdminController@index')->name('dashboardAdmin');
 
-Route::get('/dashboardAlum','AlumController@index')->name('dashboardAlum');
 //Route::resource('admindash','AdminController');
 
 Route::get('/listaAlumn','AdminController@listar')->name('listaAlumn');
@@ -43,5 +42,12 @@ Route::resource('administrador','AdminController');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
+
+
+//rutas Alumnos//
+
+Route::get('/dashboardAlum','AlumController@index')->name('dashboardAlum');
+
+Route::put('/updateAlu','AlumController@update')->name('updateAlu');
 
 

@@ -92,8 +92,12 @@ class AdminController extends Controller
      */
     public function update(Request $request)
     {
+
         $id = Auth::id();
+
+
         $datos = \App\DatosUsuario::findOrFail($id);
+        $datos->user_id = $id;
         $datos->update($request->all());
         
         return back()->with('info','usuario actualizado');

@@ -14,14 +14,14 @@ class CreateDatosUsuariosTable extends Migration
     public function up()
     {
         Schema::create('datos_usuarios', function (Blueprint $table) {
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->id();
-            $table->string('nombre');
-            $table->string('apellido');
-            $table->date('fecha_nac');
-            $table->string('sexo');
-            $table->string('nivel');
-            $table->string('telefono');
+            $table->string('nombre')->nullable();
+            $table->string('apellido')->nullable();
+            $table->date('fecha_nac')->nullable();
+            $table->string('sexo')->nullable();
+            $table->string('nivel')->nullable();
+            $table->string('telefono')->nullable();
 
             // $table->foreign('datos_id')->references('id')->on('users')
             //     ->onDelete('cascade')

@@ -2,7 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Aws\S3\S3Client;
+use Aws\S3\Exception\S3Exception;
+
+
+
+
 
 class AlumController extends Controller
 {
@@ -13,7 +21,9 @@ class AlumController extends Controller
      */
     public function index()
     {
-        return view('dashboardAlumn');
+        $user = \App\User::findOrFail(Auth::id());
+
+        return view('alumn.alumPerfil', compact('user'));
     }
 
     /**
@@ -66,9 +76,17 @@ class AlumController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        
+        $id = Auth::id();
+
+
+        $datos = \App\DatosUsuario::findOrFail($id);
+        $datos->user_id = $id;
+        $datos->update($request->all());
+        
+        return back()->with('info','usuario actualizado');
     }
 
     /**
