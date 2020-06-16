@@ -48,7 +48,7 @@ Auth::routes();
 
 Route::get('/dashboardAlum','AlumController@index')->name('dashboardAlum');
 
-Route::get('/dashboardAlum','AlumController@index')->name('dashboardAlum');
+Route::get('/alumPerfil','AlumController@index')->name('alumPerfil');
 
 
 

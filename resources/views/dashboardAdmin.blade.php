@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html  class="perfect-scrollbar-off nav-open" lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -18,10 +18,7 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
-
-
-
+  <link href="assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -116,11 +113,11 @@
   <script src="/assets/vendor/bootstrap/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
   <script src="/assets/vendor/bootstrap/js/plugins/bootstrap-notify.js"></script>
-
+<script src="/assets/vendor/bootstrap/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
 
 
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  
+  <script src="assets/demo/demo.js"></script>
 
 </body>
 

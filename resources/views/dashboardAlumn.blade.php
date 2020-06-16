@@ -102,6 +102,24 @@
     </div>
   </div>
 
+
+
+
+    <script src="/assets/vendor/bootstrap/js/core/jquery.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/core/popper.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/core/bootstrap.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Chart JS -->
+  <script src="/assets/vendor/bootstrap/js/plugins/chartjs.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="/assets/vendor/bootstrap/js/plugins/bootstrap-notify.js"></script>
+<script src="/assets/vendor/bootstrap/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+
+
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="assets/demo/demo.js"></script>
+
+
 </body>
 
 </html>
