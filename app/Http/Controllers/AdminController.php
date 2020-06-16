@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Aws\S3\S3Client;
-use Aws\S3\Exception\S3Exception;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -57,7 +56,26 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+
+           'image' => 'required|image|max:2048'
+
+       ]);
+
+       if ($request->hasFile('image')) {
+
+           $file = $request->file('image');
+
+           $name = time() . $file->getClientOriginalName();
+
+           $filePath = 'images/' . $name;
+
+           Storage::disk('s3')->put($filePath, file_get_contents($file));
+
+       }
+
+       return back()->with('info','usuario actualizado');
+
     }
 
     /**
@@ -133,10 +151,29 @@ class AdminController extends Controller
     }
     //controlador de perfil para mostrar
     public function subVideo()
-    {
-        $bucket = 'pazyoga';
-        $keyname = '*** Your Object Key ***';
+     {
 
-        return view('admin.subVideo');
+        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
+
+        $images = [];
+
+        $files = Storage::disk('s3')->files('images');
+
+           foreach ($files as $file) {
+
+               $images[] = [
+
+                   'name' => str_replace('subVideo/', '', $file),
+
+                   'src' => $url . $file
+
+               ];
+
+           }
+
+       return view('admin.subVideo', compact('images'));
+
+
+
     }
 }
