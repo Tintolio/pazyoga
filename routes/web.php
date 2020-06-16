@@ -33,7 +33,11 @@ Route::get('/listaAlumn','AdminController@listar')->name('listaAlumn');
 Route::put('/update','AdminController@update')->name('update');
 
 Route::get('/verVideos','AdminController@verVideos')->name('verVideos');
+
+
+//S3//
 Route::get('/subVideo','AdminController@subVideo')->name('subVideo');
+Route::post('/subirVideo','AdminController@store')->name('subirVideo');
 
 
 Route::resource('administrador','AdminController');
