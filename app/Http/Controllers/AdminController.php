@@ -48,35 +48,6 @@ class AdminController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-
-           'image' => 'required|image|max:2048'
-
-       ]);
-
-       if ($request->hasFile('image')) {
-
-           $file = $request->file('image');
-
-           $name = time() . $file->getClientOriginalName();
-
-           $filePath = 'images/' . $name;
-
-           Storage::disk('s3')->put($filePath, file_get_contents($file));
-
-       }
-
-       return back()->with('info','usuario actualizado');
-
-    }
 
     /**
      * Display the specified resource.
@@ -143,27 +114,62 @@ class AdminController extends Controller
 
     }
 
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        
+        if ($request->hasFile('file')) {
+
+
+            $file = $request->file('file');
+
+
+
+            $name = time() . $file->getClientOriginalName();
+
+            $filePath = 'Videos/' . $name;
+
+            Storage::disk('s3')->put($filePath, file_get_contents($file));
+
+
+            //request()->file('file')->store( 'Videos', 's3');
+
+
+            return back()->with('info','listo');
+        }
+
+        else {
+        
+            return 'No se ha subido ningun archivo';
+        }
+    
+        
+
+    }
+
     //controlador de perfil para mostrar
     public function verVideos()
     {
 
-        return view('admin.verVideos');
-    }
-    //controlador de perfil para mostrar
-    public function subVideo()
-     {
 
-        $url = 'https://s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . env('AWS_BUCKET') . '/';
+        $url = 'https://pazyoga.s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com' . '/';
 
-        $images = [];
+        $videos= [];
 
-        $files = Storage::disk('s3')->files('images');
+        $files = Storage::disk('s3')->files('Videos');
 
            foreach ($files as $file) {
 
-               $images[] = [
+               $videos[] = [
 
-                   'name' => str_replace('subVideo/', '', $file),
+                   'name' => str_replace('Videos/', '', $file),
 
                    'src' => $url . $file
 
@@ -171,7 +177,14 @@ class AdminController extends Controller
 
            }
 
-       return view('admin.subVideo', compact('images'));
+
+        return view('admin.verVideos',compact('videos','files'));
+    }
+    //controlador de perfil para mostrar
+    public function subVideo()
+     {
+
+       return view('admin.subVideo');
 
 
 
