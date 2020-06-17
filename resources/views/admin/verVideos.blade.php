@@ -2,12 +2,49 @@
 
 @section('cuerpo')
 
+{{--dd($videos)--}}	
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th>nombre</th>
+			</tr>
+		</thead>
+		<tbody>
 
-	<h2>Video musica relajante de un minuto</h2>
-			<video width="640" height="360" controls>
-  				<source src="/assets/video/1minuto.mp4" type="video/mp4">
-  		Tu navegador no soporta HTML5 video.
-			</video>
+			@foreach($videos as $video)
+				
+					<tr>
+						<td>
+
+							<a href="{{$video['src']}}">{{$video['name']}}</a>
+							
+
+							{{--
+							<video width="640" height="360" controls>
+  								<source src="{{$video['src']}}" type="video/mp4">
+  									Tu navegador no soporta HTML5 video.
+							</video>
+							--}}
+						
+						</td>
+					</tr>
+	
+			@endforeach
+		</tbody>
+	</table>
+</div>
+
+
+
+<div>
+	
+
+	
+
+
+</div>
+
 
 
 
