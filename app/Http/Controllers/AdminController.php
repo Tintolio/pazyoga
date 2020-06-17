@@ -159,7 +159,7 @@ class AdminController extends Controller
     {
 
 
-        $url = 'https://pazyoga.s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com/' . '/';
+        $url = 'https://pazyoga.s3.' . env('AWS_DEFAULT_REGION') . '.amazonaws.com' . '/';
 
         $videos= [];
 
