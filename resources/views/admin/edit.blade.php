@@ -1,5 +1,3 @@
-@include('layouts.app')
-
 
 	<div class="container" id="app">
 		@if(session()->has('info'))
@@ -22,6 +20,12 @@
 				{{$errors->first('email')}}
 			</label>
 			
-			<input class="btn btn-primary" type="submit" value="Enviar">
+			<label for="email">
+				nivel
+				<input class="form-control" type="text" name="nivel" value="{{$user->nivel}}">
+				{{$errors->first('nivel')}}
+			</label>
+
+			<input class="btn btn-primary" type="submit" value="Actualizar">
 		</form>
 	</div>

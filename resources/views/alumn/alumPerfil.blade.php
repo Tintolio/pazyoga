@@ -82,13 +82,20 @@
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>fecha nacimiento</label>
+                        @if(is_null($user->datos)) 
+                          <input type="date" class="form-control" name="fecha_nac" value="fecha_nac"> 
+                        @else
+                          <input type="date" class="form-control" name="fecha_nac" value="{{$user->datos->fecha_nac}} "> 
+                          {{$errors->first('fecha_nac')}}
+                        @endif
+
                         <input type="date" class="form-control" value="Melbourne">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
-                      <div class="form-group">
-                          <label>Sexo</label>
-   <div class="dropdown show">
+<div class="form-group">
+  <label>Sexo</label>
+  <div class="dropdown show">
   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Dropdown link
   </a>
@@ -98,8 +105,9 @@
     <a class="dropdown-item" href="#">Hombre</a>
   </div>
 </div>
+</div>
 
-                      </div>
+
                     </div>
 
                   </div>
@@ -111,6 +119,8 @@
                       </div>
                     </div>
 </div>
+
+
                   <div class="row">
                     <div class="update ml-auto mr-auto">
                       <input class="btn btn-primary" type="submit" value="Actualizar">
@@ -123,9 +133,13 @@
    </form>
         
 
-    @if(session()->has('info'))
-      <div class="alert alert-success">{{session ('info')}}</div>
-    @endif
+    
+      <div class="alert alert-success">
+      	@if(session()->has('info'))
+			  {{session ('info')}}
+	    @endif
+	  </div>
+    
 
 
 

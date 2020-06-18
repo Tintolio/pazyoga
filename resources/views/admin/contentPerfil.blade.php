@@ -43,18 +43,16 @@
       @method('PUT')
       @csrf
 
-      <div class="col-md-8">
+      <div class="col">
             <div class="card card-user">
               <div class="card-header">
                 <h5 class="card-title">Datos del usuario</h5>
               </div>
-              
+
               <div class="card-body">
                 <form>
                   <div class="row">
                     <div class="col-md-5 pr-1">
-                      
-
                       <div class="form-group">
                         <label>Nombre</label>
                         @if(is_null($user->datos)) {{--verifica que el valor de la variable no sea null--}}
@@ -64,8 +62,6 @@
                           {{$errors->first('nombre')}}
                         @endif
                       </div>
-
-
                     </div>
                     <div class="col-md-5 pl-1">
                       <div class="form-group">
@@ -82,33 +78,40 @@
 
 
                   <div class="row">
-                    <div class="col-md-4 pr-1">
-                      <div class="form-group">
+                      <div class="col-auto">
                         <label>fecha nacimiento</label>
-                        <input type="date" class="form-control" value="Melbourne">
+                        @if(is_null($user->datos)) 
+                          <input type="date" class="form-control" name="fecha_nac" value="fecha_nac"> 
+                        @else
+                          <input type="date" class="form-control" name="fecha_nac" value="{{$user->datos->fecha_nac}} "> 
+                          {{$errors->first('fecha_nac')}}
+                        @endif
                       </div>
-                    </div>
-                    <div class="col-md-4 px-1">
-                      <div class="form-group">
-                          <label>Sexo</label>
-   <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown link
-  </a>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Mujer</a>
-    <a class="dropdown-item" href="#">Hombre</a>
-  </div>
-</div>
+
+                      <div class="col-auto">
+                        <div class="form-group">
+                        <label>telefono</label>
+                        @if(is_null($user->datos)) 
+                          <input type="text" class="form-control" name="telefono" 
+                                 value="telefono"> 
+                        @else
+                          <input type="text" class="form-control" name="telefono" 
+                                  value="{{$user->datos->telefono}} "> 
+                          {{$errors->first('telefono')}}
+                        @endif
+                      </div>
 
                       </div>
-                    </div>
-                    <div class="col-md-4 pl-1">
-                      <div class="form-group">
-                        <label>Telefono</label>
-                        <input type="number" class="form-control" placeholder="+56 9 0">
-                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-auto my-1">
+                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <option selected>sexo.</option>
+                            <option value="1">hombre</option>
+                            <option value="2">mujer</option>               
+                          </select>
                     </div>
                   </div>
 
@@ -118,12 +121,15 @@
                     </div>
                   </div>
                 </form>
-              </div>
+              </div> <!-- fin card body -->
             </div>
-      </div>
+      </div> <!-- fin del formulario -->
 
       </form>
-  </div>
+</div>
+
+
+
 </div>
 
     @if(session()->has('info'))
