@@ -39,8 +39,9 @@ Route::get('/verVideos','AdminController@verVideos')->name('verVideos');
 Route::get('/subVideo','AdminController@subVideo')->name('subVideo');
 Route::post('/subirVideo','AdminController@store')->name('subirVideo');
 
+Route::put('/updateuser','AdminController@updateuser')->name('updateuser');
 
-Route::resource('administrador','AdminController');
+Route::put('/admin/{id}/edit','AdminController@edit')->name('edit');
 //// rutas del administrador ///
 
 Auth::routes();
@@ -67,3 +68,5 @@ Route::get('/dashboardAlum','AlumController@index')->name('dashboardAlum');
 Route::put('/updateAlu','AlumController@update')->name('updateAlu');
 
 
+//rutas de prueba 
+Route::view('/barra', 'admin.barra_progreso');

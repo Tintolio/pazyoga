@@ -14,8 +14,10 @@
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
+                            <th>Apellido</th>
                             <th>Email</th>
-                            <th>Role</th>
+                            <th>nivel</th>
+                            <th>Estado</th>
                             <th>Acciones</th>
                         </tr>
                       </thead>
@@ -23,21 +25,26 @@
                   @foreach ($users as $user)
                         <tr>
                             <td>{{$user->id}}</td>
-                            <td>{{$user->name}}</td>
+                            <td>{{$user->datos->nombre}}</td>
+                            <td>{{$user->datos->apellido}}</td>
                             <td>{{$user->email}}</td>
+                            <td>{{$user->datos->nivel}}</td>
                             <td>{{$user->role->display_name}} </td>
                             <td> 
+                            {{dd($user->id)}}
+
                           <a class="btn btn-info btn-xs"
                            data-toggle="modal" data-target="#edituser"
-                           href={{route('administrador.edit',$user->id)}}
+                           href={{route('edit',$user->id)}}
                                 > editar</a>
-
+                          {{--
                           <form style="display: inline;"  method="POST" 
                                 action="{{route('administrador.destroy',$user->id)}}">
                             @csrf
                             @method ('DELETE')
                            <button class="btn btn-danger btn-xs" type="submit">Eliminar</button>
                           </form>
+                          --}}
                           </td> 
                         </tr>
                  @endforeach

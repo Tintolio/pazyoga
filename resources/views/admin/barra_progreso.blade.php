@@ -1,12 +1,26 @@
-@extends('dashboardAdmin')
-@section('cuerpo')
+<!DOCTYPE html>
 
+<html>
 
+<head>
+
+    <title>Laravel 5.6 - File upload with progress bar - ItSolutionStuff.com</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <style>
 
+        .progress { position:relative; width:100%; border: 1px solid #7F98B2; padding: 1px; border-radius: 3px; }
+
+        .bar { background-color: #B4F5B4; width:0%; height:25px; border-radius: 3px; }
+
+        .percent { position:absolute; display:inline-block; top:3px; left:48%; color: #7F98B2;}
+
+    </style>
+
+</head>
+
+<body>
 
  
 
@@ -14,6 +28,11 @@
 
     <div class="card">
 
+      <div class="card-header">
+
+        <h2>Laravel 5.6 - File upload with progress bar - ItSolutionStuff.com</h2>
+
+      </div>
 
       <div class="card-body">
 
@@ -21,18 +40,20 @@
 
                 @csrf
 
-                <div class="forma">
-                    <input name="file" id="file" type="file" class="form-control"><br/>
+                <div class="form-group">
+
+                    <input name="file" id="poster" type="file" class="form-control"><br/>
 
                     <div class="progress">
 
                         <div class="bar"></div >
 
-                        <div class="percent">0%</div>
+                        <div class="percent">0%</div >
 
                     </div>
 
-                    <input type="submit"  value="Submit" id="file" class="btn btn-success">
+                    <input type="submit"  value="Submit" class="btn btn-success">
+
                 </div>
 
             </form>    
@@ -85,7 +106,7 @@
 
     $('form').ajaxForm({
 
-        beforeSubmit: ,
+        beforeSubmit: validate,
 
         beforeSend: function() {
 
@@ -93,7 +114,7 @@
 
             var percentVal = '0%';
 
-            var fileValue = $('input[name=file]').fieldValue();
+            var posterValue = $('input[name=file]').fieldValue();
 
             bar.width(percentVal)
 
@@ -127,7 +148,7 @@
 
             alert('Uploaded Successfully');
 
-            window.location.href = "/subVideo";
+            window.location.href = "/file-upload";
 
         }
 
@@ -139,7 +160,6 @@
 
 </script>
 
+</body>
 
-
-
-@endsection
+</html>
