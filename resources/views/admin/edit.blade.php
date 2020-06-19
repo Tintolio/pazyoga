@@ -4,7 +4,7 @@
 			<div class="alert alert-success">{{session ('info')}}</div>
 		@endif
 
-		<form method="POST" action="{{route('administrador.update',$user->id)}}">
+		<form method="POST" action="{{route('administrador.edit',$user->id)}}">
 			@method('PUT')
 			@csrf
 			<label for="Nombre">
@@ -14,13 +14,13 @@
 			</label>
 			<br>
 
-			<label for="email">
-				Email
-				<input class="form-control" type="email" name="email" value="{{$user->email}}">
-				{{$errors->first('email')}}
+			<label for="apellido">
+				apellido
+				<input class="form-control" type="apellido" name="apellido" value="{{$user->apellido}}">
+				{{$errors->first('apellido')}}
 			</label>
 			
-			<label for="email">
+			<label for="apellido">
 				nivel
 				<input class="form-control" type="text" name="nivel" value="{{$user->nivel}}">
 				{{$errors->first('nivel')}}

@@ -68,8 +68,26 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        $user = \App\User::findOrFail($id); //App\User (modelo User. DEBE SER IMPORTADO) devuelve todos los usuarios de la bd  // findOrFail ->funcion de laravel para encontrar o fallar(lanzar excepcion)
+        //$user = \App\User::findOrFail($id); //App\User (modelo User. DEBE SER IMPORTADO) devuelve todos los usuarios de la bd  // findOrFail ->funcion de laravel para encontrar o fallar(lanzar excepcion)
+        
+
+$datos = \App\DatosUsuario::findOrFail($id);
+        $datos->user_id = $id;
+
+        $datos->update($request->all());
+        
+        //return back()->with('info','usuario actualizado');
+
+
+
+
+
         return view ('admin.edit',compact('user')); //compact envia la variable a la vista
+
+
+
+
+
     }
 
     /**
@@ -92,6 +110,10 @@ class AdminController extends Controller
         return back()->with('info','usuario actualizado');
     
     }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.

@@ -1,25 +1,49 @@
-<nav class="nav-menu d-none d-lg-block">
-  <ul>
-    <li class="active"><a href="#header">Home</a></li>
-    <li class="drop-down"><a href="">yoga 1</a>
-  <ul>
-  
-  <li><a href="#about">yoga 2</a></li>
-  <li><a href="#team">Team</a></li>
-  <li class="drop-down"><a href="#">Seccion</a>
+       <ul>
+          <li class="active"><a href="#header">Home</a></li>
 
-  <ul>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-  </ul>
+      @guest
+          @else
+    
+            @if (auth()->user()->hasRoles(['Admin'])){{-- verificacion de usuario para mostrar el link--}}
+
+              <li class="nav-item">
+                <a class=" nav-link " href="{{route('dashboardAdmin')}}"> 
+                  Dashboard :3
+
+                </a>
               </li>
-            </ul>
-          </li>
-          <li><a href="#services">Servicios</a></li>
-          <li><a href="#contact">Contacto</a></li>
 
+              @elseif (auth()->user()->hasRoles(['User'])){{-- verificacion de usuario para mostrar el link--}}
+              <li class="nav-item">
+                <a class=" nav-link " href="{{route('dashboardAlum')}}"> 
+                  Plataforma Usuario
+
+                </a>
+             </li>
+
+            @endif
+
+      @endguest
+    @guest {{-- hacer login de usuario muestre en la lista de navegacion login si no ha iniciado sessión, en caso contrario muestra cerrar session --}}
+        <li class="active" data-toggle="collapse"> 
+          <a class="nav-link" href="{{route('login')}}"> 
+            login
+          </a> 
+        </li> {{--link de referencia a login generado por auth--}}
+      @else
+        <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{auth()->user()->name}}
+              </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="nav-link" href="#" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+              cerrar sesión
+            </a>{{--si se hace click llama a al formulario de nombre 'logout-form' para cerrar sesión --}}
+          </li>
+      @endguest
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+      </form> 
+          <li><a href="#contact">Contacto</a></li>
         </ul>
-</nav><!-- .nav-menu -->

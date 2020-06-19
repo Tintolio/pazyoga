@@ -1,57 +1,58 @@
 @extends('dashboardAlumn')
 
 @section('cuerpoAlumn')
-          
 
+<div class="row">
+  
+  
           <div class="col-md-4">
             <div class="card card-user">
               <div class="image">
                 <img src="../assets/img/damir-bosnjak.jpg" alt="...">
               </div>
-             
-
-
               <div class="card-body">
                 <div class="author">
                   <a href="#">
                     <img class="avatar border-gray" src="../assets/img/mike.jpg" alt="...">
-                    <h5 class="title">Chet Faker</h5>
+        
+<label>C</label>
+ @if(is_null($user->datos)) {{--verifica que el valor de la variable no sea null--}}
+      <input type="text" class="form-control" disabled="" name="nombre" value="Nombre"> 
+            @else
+                          <input type="text" class="form-control" disabled="" name="nombre" value="{{$user->datos->nombre}} "> 
+                          {{$errors->first('nombre')}}
+                        @endif
+                                           
                   </a>
                   <p class="description">
                  
                   </p>
                 </div>
                 <p class="description text-center">
-                  "I like the way you work it <br>
-                  No diggity <br>
-                  I wanna bag it up"
+                  i love yoga<br>
                 </p>
               </div>
+
+            </div>
+
           </div>
-
-
-
-
-
-
-
-
+  
+<div class="row">
 
     <form method="POST" action="{{route('updateAlu')}}">
       @method('PUT')
       @csrf
 
-      <div class="col-md-8">
+      <div class="col">
             <div class="card card-user">
               <div class="card-header">
-                <h5 class="card-title">Edit Profile</h5>
+                <h5 class="card-title">Datos del usuario</h5>
               </div>
+
               <div class="card-body">
                 <form>
                   <div class="row">
                     <div class="col-md-5 pr-1">
-                      
-
                       <div class="form-group">
                         <label>Nombre</label>
                         @if(is_null($user->datos)) {{--verifica que el valor de la variable no sea null--}}
@@ -61,8 +62,6 @@
                           {{$errors->first('nombre')}}
                         @endif
                       </div>
-
-
                     </div>
                     <div class="col-md-5 pl-1">
                       <div class="form-group">
@@ -79,8 +78,7 @@
 
 
                   <div class="row">
-                    <div class="col-md-4 pr-1">
-                      <div class="form-group">
+                      <div class="col-auto">
                         <label>fecha nacimiento</label>
                         @if(is_null($user->datos)) 
                           <input type="date" class="form-control" name="fecha_nac" value="fecha_nac"> 
@@ -88,38 +86,34 @@
                           <input type="date" class="form-control" name="fecha_nac" value="{{$user->datos->fecha_nac}} "> 
                           {{$errors->first('fecha_nac')}}
                         @endif
-
-                        <input type="date" class="form-control" value="Melbourne">
                       </div>
-                    </div>
-                    <div class="col-md-4 px-1">
-<div class="form-group">
-  <label>Sexo</label>
-  <div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown link
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Mujer</a>
-    <a class="dropdown-item" href="#">Hombre</a>
-  </div>
-</div>
-</div>
 
 
-                    </div>
+                      <div class="col-auto">
+                        <div class="form-group">
+                        <label>telefono</label>
+                        @if(is_null($user->datos)) 
+                          <input type="text" class="form-control" name="telefono" 
+                                 value="telefono"> 
+                        @else
+                          <input type="text" class="form-control" name="telefono" 
+                                  value="{{$user->datos->telefono}} "> 
+                          {{$errors->first('telefono')}}
+                        @endif
+                      </div>
 
+                      </div>
                   </div>
-<div class="row">
-	                    <div class="col-md-5 pl-1">
-                      <div class="form-group">
-                        <label>Telefono</label>
-                        <input type="text-center" class="form-control" placeholder="+56 9 0">
-                      </div>
+                  <div class="row">
+                    <div class="col-auto my-1">
+                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                         <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                            <option selected>sexo.</option>
+                            <option value="1">hombre</option>
+                            <option value="2">mujer</option>               
+                          </select>
                     </div>
-</div>
-
+                  </div>
 
                   <div class="row">
                     <div class="update ml-auto mr-auto">
@@ -127,23 +121,18 @@
                     </div>
                   </div>
                 </form>
-              </div>
+              </div> <!-- fin card body -->
             </div>
-      </div>
-   </form>
-        
+      </div> <!-- fin del formulario -->
 
-    
-      <div class="alert alert-success">
-      	@if(session()->has('info'))
-			  {{session ('info')}}
-	    @endif
-	  </div>
-    
+      </form>
+</div>
 
+</div>
 
-
-
+    @if(session()->has('info'))
+      <div class="alert alert-success">{{session ('info')}}</div>
+    @endif
 
 
 @endsection

@@ -9,7 +9,7 @@ class DatosUsuario extends Model
 
 
 	protected $fillable = [
-        'nombre', 'apellido', 'fecha_nac','sexo','telefono'
+        'nombre', 'apellido', 'fecha_nac','sexo','telefono','nivel'
     ];
 
    	public function user()
