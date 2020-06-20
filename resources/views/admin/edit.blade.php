@@ -4,7 +4,8 @@
 			<div class="alert alert-success">{{session ('info')}}</div>
 		@endif
 
-		<form method="POST" action="{{route('update',$user->id)}}">
+		<form method="POST" action="{{route('updateUser')}}">
+
 			@method('PUT')
 			@csrf
 			<label for="Nombre">

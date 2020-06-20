@@ -71,8 +71,8 @@ class AdminController extends Controller
         //$user = \App\User::findOrFail($id); //App\User (modelo User. DEBE SER IMPORTADO) devuelve todos los usuarios de la bd  // findOrFail ->funcion de laravel para encontrar o fallar(lanzar excepcion)
         
 
-        $datos = \App\DatosUsuario::findOrFail($id);
-        
+        $datos = \App\user::findOrFail($id);
+
         //return back()->with('info','usuario actualizado');
 
         return view ('admin.edit',compact('datos')); //compact envia la variable a la vista
