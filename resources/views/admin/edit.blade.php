@@ -4,10 +4,11 @@
 			<div class="alert alert-success">{{session ('info')}}</div>
 		@endif
 
-		<form method="POST" action="{{route('updateUser')}}">
+		<form method="POST" action="{{route('updateUser',$user->id)}}">
 
 			@method('PUT')
 			@csrf
+			<label>id: {{$user->id}}</label>
 			<label for="Nombre">
 				Nombre
 				<input class="form-control" type="nombre" name="nombre" value="{{$user->datos->nombre}}">
@@ -34,5 +35,11 @@
 			</label>
 			
 			<input class="btn btn-primary" type="submit" value="Actualizar">
+
 		</form>
+		<form style="display: inline;"  method="POST" action="{{route('elim',$user->id)}}">
+            	@csrf
+                @method ('DELETE')
+                <button class="btn btn-danger btn-xs" type="submit">Eliminar</button>
+        </form>
 	</div>

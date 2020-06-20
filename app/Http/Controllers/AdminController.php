@@ -71,11 +71,11 @@ class AdminController extends Controller
         //$user = \App\User::findOrFail($id); //App\User (modelo User. DEBE SER IMPORTADO) devuelve todos los usuarios de la bd  // findOrFail ->funcion de laravel para encontrar o fallar(lanzar excepcion)
         
 
-        $datos = \App\user::findOrFail($id);
+        $user = \App\user::findOrFail($id);
 
         //return back()->with('info','usuario actualizado');
 
-        return view ('admin.edit',compact('datos')); //compact envia la variable a la vista
+        return view ('admin.edit',compact('user')); //compact envia la variable a la vista
 
 
 
@@ -87,12 +87,14 @@ class AdminController extends Controller
 
     public function updateUser(Request $request)
     {
-        $id = Auth::id();
+        $header = $request->header();
+        $referer = $header['referer'];
+        $id = substr($referer[0],27);//cambiar numero al momento de subir, ya que este esta determinado por la extension de la url
         $datos = \App\DatosUsuario::findOrFail($id);
         $datos->user_id = $id;
         $datos->update($request->all());
         
-        return back()->with('info','usuario actualizado');
+        return view('admin.listAlumn')->with('info','usuario actualizado');
      
     }
 
@@ -134,7 +136,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        \App\User::findOrFail($id)->delete();
+        return view('admin.listAlumn')>with('info','usuario eliminado');
     }
 
 //controlador de perfil para mostrar

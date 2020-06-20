@@ -34,21 +34,17 @@
                               
 
                             <a class="btn btn-info btn-xs"
-                           data-toggle="modal" data-target="#edituser"
+                           data-toggle="" data-target="#edituser"
                            href={{route('edit',$user->id )}}
                                 > editar</a> 
                           
                           {{--
-                          <form style="display: inline;"  method="POST" 
-                                action="{{route('administrador.destroy',$user->id)}}">
-                            @csrf
-                            @method ('DELETE')
-                           <button class="btn btn-danger btn-xs" type="submit">Eliminar</button>
-                          </form>
+                          
                           --}}
                           </td> 
                         </tr>
                  @endforeach
+
                 </tbody>
                       </table>
             </div>
