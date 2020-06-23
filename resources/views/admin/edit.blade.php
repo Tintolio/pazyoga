@@ -1,4 +1,5 @@
 
+
 	<div class="container" id="app">
 		@if(session()->has('info'))
 			<div class="alert alert-success">{{session ('info')}}</div>
@@ -37,9 +38,4 @@
 			<input class="btn btn-primary" type="submit" value="Actualizar">
 
 		</form>
-		<form style="display: inline;"  method="POST" action="{{route('elim',$user->id)}}">
-            	@csrf
-                @method ('DELETE')
-                <button class="btn btn-danger btn-xs" type="submit">Eliminar</button>
-        </form>
 	</div>

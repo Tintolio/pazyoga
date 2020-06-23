@@ -89,7 +89,7 @@ class AdminController extends Controller
     {
         $header = $request->header();
         $referer = $header['referer'];
-        $id = substr($referer[0],27);//cambiar numero al momento de subir, ya que este esta determinado por la extension de la url
+        /*$id = substr($referer[0],27);*///cambiar numero al momento de subir, ya que este esta determinado por la extension de la url
         $datos = \App\DatosUsuario::findOrFail($id);
         $datos->user_id = $id;
         $datos->update($request->all());

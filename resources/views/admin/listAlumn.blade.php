@@ -13,9 +13,8 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
+                            <th>nombre</th>
                             <th>Apellido</th>
-                            <th>Email</th>
                             <th>nivel</th>
                             <th>Estado</th>
                             <th>Acciones</th>
@@ -27,20 +26,17 @@
                             <td>{{$user->id}} </td>
                             <td>{{$user->datos->nombre}}</td>
                             <td>{{$user->datos->apellido}}</td>
-                            <td>{{$user->email}}</td>
                             <td>{{$user->datos->nivel}}</td>
-                            <td>{{$user->role->display_name}} </td>
                             <td> 
                               
 
-                            <a class="btn btn-info btn-xs"
-                           data-toggle="" data-target="#edituser"
-                           href={{route('edit',$user->id )}}
-                                > editar</a> 
+                    <button type="button" class="btn btn-primary" 
+                              data-toggle="modal" data-target="#EditarAli"  
+                              href={{route('updateUser',$user->id )}}>
+                                editar
+                    </button>
+
                           
-                          {{--
-                          
-                          --}}
                           </td> 
                         </tr>
                  @endforeach
@@ -51,12 +47,15 @@
 
             <!-- Button trigger modal       """""ref=route('administrador.edit',$user->id)  "" -->
 
+
+
+
 <!-- Modal -->
-<div class="modal fade" id="edituser" tabindex="-1" role="dialog" aria-labelledby="edituser" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+<div class="modal fade" id="EditarAli" tabindex="-1" role="dialog" aria-labelledby="EditarAli" aria-hidden="true">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="edituser">Editar usuario</h5>
+        <h5 class="modal-title" id="EditarAli">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -66,11 +65,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
-
         </div>
     </div>
 </div>

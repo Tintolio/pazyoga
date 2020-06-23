@@ -41,9 +41,8 @@ Route::post('/subirVideo','AdminController@store')->name('subirVideo');
 
 Route::put('/updateUser','AdminController@updateuser')->name('updateUser');
 
-Route::get('/edit/{id}','AdminController@edit')->name('edit');
-
-Route::delete('/elim/{id}', 'AdminController@destroy')->name('elim');
+//Route::get('/edit/{id}','AdminController@edit')->name('edit');
+//Route::delete('/elim/{id}', 'AdminController@destroy')->name('elim');
 //// rutas del administrador ///
 
 Auth::routes();

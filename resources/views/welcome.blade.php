@@ -72,7 +72,7 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Portal de yoga 1</h2>
+          <h2>Yoga Equilibrio</h2>
           <p>Suscribete a la clasesde yoga</p>
         </div>
 
@@ -80,24 +80,22 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Info yoga 1</p>
+              @include('partials.vidIG1')
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Info yoga 1</p>
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+             @include('partials.vidIG3')
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Info yoga 1</p>
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              @include('partials.vidIG2')
+
             </div>
           </div>
 
@@ -153,11 +151,7 @@
           
           
           <div class="col-md-6 mt-4">
-            <div class="icon-box">
-              <i class="icofont-image"></i>
-              <h4><a href="#">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
+         
           </div>
           <div class="col-md-6 mt-4">
             <div class="icon-box">
