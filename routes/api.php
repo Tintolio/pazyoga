@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/*
+ * Auth
+ */
+
+Route::post('register', 'Auth\AuthController@register');
+Route::post('login', 'Auth\AuthController@login');
+Route::post('recoverPassword', 'Auth\AuthController@recoverPassword');
+Route::post('resetPassword', 'Auth\AuthController@resetPassword');
