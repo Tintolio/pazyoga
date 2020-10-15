@@ -26,3 +26,6 @@ Route::post('register', 'Auth\AuthController@register');
 Route::post('login', 'Auth\AuthController@login');
 Route::post('recoverPassword', 'Auth\AuthController@recoverPassword');
 Route::post('resetPassword', 'Auth\AuthController@resetPassword');
+
+
+Route::post('prueba', 'PruebaController@index');
